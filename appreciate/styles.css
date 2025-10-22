@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f8e9ec;
+  color: #5f4b51;
+  overflow-x: hidden;
+}
+
+/* Envelope Section */
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #f8e9ec, #f5d1dc);
+  transition: opacity 1.5s ease;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background: #fff;
+  border: 2px solid #f0b6c3;
+  cursor: pointer;
+  transition: transform 1s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.envelope .flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f0b6c3;
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+  transition: transform 1s ease;
+  transform-origin: top;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope .letter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 0;
+  padding-top: 40px;
+  font-size: 1rem;
+  color: #6b4c5a;
+}
+
+.envelope.open {
+  transform: translateY(-150px);
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Background Music Hidden */
+#bgMusic {
+  display: none;
+}
+
+/* Tribute Page */
+.tribute-page {
+  display: none;
+  text-align: center;
+  background: #f8e9ec;
+  padding: 40px 20px 80px;
+  animation: fadeIn 2s ease;
+}
+
+.message {
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.message h1 {
+  color: #d9779f;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #f3ccd9;
+}
+
+.message span {
+  color: #b23b6b;
+}
+
+.message p {
+  font-size: 1.2rem;
+  background: #ffffffa6;
+  border-radius: 15px;
+  padding: 20px;
+  line-height: 1.8;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #fcb6cc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

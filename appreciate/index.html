@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribute to Shryle Faith</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Envelope Section -->
+  <div class="envelope-container" id="envelopeContainer">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>Dear Prime Leader,</p>
+        <p>Tap to open your heartfelt message 💌</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <video id="bgMusic" loop>
+    <source src="ok.mp4" type="video/mp4">
+  </video>
+
+  <!-- Tribute Page -->
+  <div class="tribute-page" id="tributePage">
+    <div class="message">
+      <h1>For Our Beloved Prime Leader, <span>Shryle Faith</span> 💖</h1>
+      <p id="typingMessage"></p>
+    </div>
+
+    <div class="gallery">
+      <img src="1.jpg" alt="Memory 1">
+      <img src="2.jpg" alt="Memory 2">
+      <img src="3.jpg" alt="Memory 3">
+      <img src="4.jpg" alt="Memory 4">
+      <img src="5.jpg" alt="Memory 5">
+      <img src="6.jpg" alt="Memory 6">
+      <img src="7.jpg" alt="Memory 7">
+      <img src="8.jpg" alt="Memory 8">
+      <img src="9.jpg" alt="Memory 9">
+      <img src="10.jpg" alt="Memory 10">
+      <img src="11.jpg" alt="Memory 11">
+      <img src="12.jpg" alt="Memory 12">
+      <img src="13.jpg" alt="Memory 13">
+      <img src="14.jpg" alt="Memory 14">
+      <img src="15.jpg" alt="Memory 15">
+      <img src="16.jpg" alt="">
+      <img src="17.jpg" alt="">
+      <img src="18.jpg" alt="">
+      <img src="19.jpg" alt="">
+      <img src="20.jpg" alt="">
+      <img src="21.jpg" alt="">
+      <img src="22.jpg" alt="">
+      <img src="23.jpg" alt="">
+      <img src="24.jpg" alt="">
+      <img src="25.jpg" alt="">
+
+
+    </div>
+  </div>
+
+  <!-- Lightbox Viewer -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightboxImg" />
+  </div>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const envelopeContainer = document.getElementById('envelopeContainer');
+    const tributePage = document.getElementById('tributePage');
+    const bgMusic = document.getElementById('bgMusic');
+    const messageText = "Your guidance, patience, and prayers have molded us with love. You've led us closer to God, showing what true faith looks like. Every laughter, tear, and victory we shared with you will forever be treasured in our hearts. We thank God for your life, Prime Leader Shryle Faith. You are deeply loved. 🌷";
+    let i = 0;
+
+    envelope.addEventListener('click', () => {
+      envelope.classList.add('open');
+      setTimeout(() => {
+        envelopeContainer.classList.add('fade-out');
+        setTimeout(() => {
+          envelopeContainer.style.display = 'none';
+          tributePage.style.display = 'block';
+          bgMusic.play().catch(() => {
+            alert("Please tap once more to allow the background music 🎵");
+          });
+          typeMessage();
+        }, 1500);
+      }, 1800);
+    });
+
+    function typeMessage() {
+      const typing = document.getElementById('typingMessage');
+      if (i < messageText.length) {
+        typing.innerHTML += messageText.charAt(i);
+        i++;
+        setTimeout(typeMessage, 50);
+      }
+    }
+
+    // Lightbox Script
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+  </script>
+</body>
+</html>
